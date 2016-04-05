@@ -29,9 +29,9 @@ The warehouse is implemented on a Hadoop cluster.
 - MongoDB
 - This repository and its requirements
 
-## Start
+## Start the services
 
-1. Start MongoDB server: `mongod --config /usr/local/etc/mongod.conf --replSet singleNodeRepl` (for demonstration purposes,
+1. Start the MongoDB server: `mongod --config /usr/local/etc/mongod.conf --replSet singleNodeRepl` (for demonstration purposes,
 I'm using a single node server here)
 2. Enable the MongoDB optlog:
 	a. `mongo`
@@ -42,3 +42,8 @@ I'm using a single node server here)
 6. Add this repo to your `PYTHONPATH` (if you don't do so, the next line will fail because it won't find the `kafka_doc_manager`)
 7. Start the MongoDB optlog tailer: `mongo-connector -m localhost:27017 -t localhost:9092 -d kafka_doc_manager`
 8. Start the web server: `flask manage.py runserver`
+
+## Look at the API documentation
+
+The API of the web service is documented in the [doc](./doc) folder. It allows you to add users, projects, activities and other data by
+sending JSON data to the server. The service can even generate an invoice for a given project.
