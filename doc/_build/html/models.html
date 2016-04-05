@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; Time tracker webapp  documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Time tracker webapp  documentation" href="index.html" />
+    <link rel="prev" title="Endpoint functions" href="endpoints.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-webapp.models">
+<span id="models"></span><h1>Models<a class="headerlink" href="#module-webapp.models" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="webapp.models.Activity">
+<em class="property">class </em><code class="descclassname">webapp.models.</code><code class="descname">Activity</code><span class="sig-paren">(</span><em>*args</em>, <em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Activity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>A limited amount of work done by a user on a given date and time.</p>
+<dl class="method">
+<dt id="webapp.models.Activity.serialize">
+<code class="descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Activity.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Activity.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with parameters <cite>id</cite>, <cite>user</cite>, <cite>start</cite>, <cite>duration_str</cite>, <cite>minutes</cite>, <cite>description</cite>, <cite>billable</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="webapp.models.Company">
+<em class="property">class </em><code class="descclassname">webapp.models.</code><code class="descname">Company</code><span class="sig-paren">(</span><em>*args</em>, <em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Company"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Company" title="Permalink to this definition">¶</a></dt>
+<dd><p>Company that executes work for a customer. A company can contain zero or more teams.</p>
+<dl class="method">
+<dt id="webapp.models.Company.find_team">
+<code class="descname">find_team</code><span class="sig-paren">(</span><em>teamname</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Company.find_team"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Company.find_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a team in this company&#8217;s list of teams</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>teamname</strong> &#8211; the name of the team</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the team. If the team is not found, a RuntimeError is raised.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Company.remove_team">
+<code class="descname">remove_team</code><span class="sig-paren">(</span><em>teamname</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Company.remove_team"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Company.remove_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a given team from this company&#8217;s list of teams</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>teamname</strong> &#8211; the name of the team</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Company.serialize">
+<code class="descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Company.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Company.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with keys <cite>name</cite>, <cite>address</cite>, <cite>registration_number</cite>, <cite>account_number</cite>, <cite>teams</cite> (list), <cite>created_at</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="webapp.models.Customer">
+<em class="property">class </em><code class="descclassname">webapp.models.</code><code class="descname">Customer</code><span class="sig-paren">(</span><em>*args</em>, <em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Customer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customer for who a project is being done. All billing details should be set here.</p>
+<dl class="method">
+<dt id="webapp.models.Customer.serialize">
+<code class="descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Customer.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Customer.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with parameters <cite>name</cite>, <cite>address</cite>, <cite>registration_number</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="webapp.models.Project">
+<em class="property">class </em><code class="descclassname">webapp.models.</code><code class="descname">Project</code><span class="sig-paren">(</span><em>*args</em>, <em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project" title="Permalink to this definition">¶</a></dt>
+<dd><p>A project done by a given team in a company for a customer. Team members can log activities done for a given
+project. A project also contains an agreed on hourly rate for billing.</p>
+<dl class="method">
+<dt id="webapp.models.Project.find_activity">
+<code class="descname">find_activity</code><span class="sig-paren">(</span><em>activityid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project.find_activity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project.find_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find an activity in this projects list of activities</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>activityid</strong> &#8211; the id of the activity</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the activity. If the activity is not found, a RuntimeError is raised.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Project.generate_invoice">
+<code class="descname">generate_invoice</code><span class="sig-paren">(</span><em>start_date</em>, <em>end_date</em>, <em>template=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project.generate_invoice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project.generate_invoice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an invoice as html for a given period.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start_date</strong> &#8211; datetime.date object that marks the start of the interval of interest.</li>
+<li><strong>end_date</strong> &#8211; datetime.date object that marks the end of the interval of interest.</li>
+<li><strong>template</strong> &#8211; a jinja2 template string. If not given, the projects own invoice_template is used.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The invoice as html for a given period.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Project.get_activities_by_week">
+<code class="descname">get_activities_by_week</code><span class="sig-paren">(</span><em>start_date</em>, <em>end_date</em>, <em>only_billable=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project.get_activities_by_week"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project.get_activities_by_week" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns activities within requested date range aggregated by week.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start_date</strong> &#8211; datetime.date object that marks the start of the interval of interest.</li>
+<li><strong>end_date</strong> &#8211; datetime.date object that marks the end of the interval of interest.</li>
+<li><strong>only_billable</strong> &#8211; boolean. Default=True. Whether to return only billable activities</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a pandas.DataFrame containing the matched activities&#8217; start, minutes, description and billable information.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Project.get_activities_df">
+<code class="descname">get_activities_df</code><span class="sig-paren">(</span><em>start_date</em>, <em>end_date</em>, <em>only_billable=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project.get_activities_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project.get_activities_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns activities within requested date range as a pandas.DataFrame. Note that both start_date and end_date are included.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start_date</strong> &#8211; datetime.date object that marks the start of the interval of interest.</li>
+<li><strong>end_date</strong> &#8211; datetime.date object that marks the end of the interval of interest.</li>
+<li><strong>only_billable</strong> &#8211; boolean. Default=True. Whether to return only billable activities</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a pandas.DataFrame containing the matched activities&#8217; start, minutes, description and billable information.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Project.get_activities_dict">
+<code class="descname">get_activities_dict</code><span class="sig-paren">(</span><em>start_date</em>, <em>end_date</em>, <em>only_billable=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project.get_activities_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project.get_activities_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns activities within requested date range. Note that both start_date and end_date are included.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start_date</strong> &#8211; datetime.date object that marks the start of the interval of interest.</li>
+<li><strong>end_date</strong> &#8211; datetime.date object that marks the end of the interval of interest.</li>
+<li><strong>only_billable</strong> &#8211; boolean. Default=True. Whether to return only billable activities</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a dictionary with <cite>sum</cite> being the total amount of minutes spent, and <cite>activities</cite> being a list of activities.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Project.invoice_serialize">
+<code class="descname">invoice_serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project.invoice_serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project.invoice_serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serializes a limited number of attributes of this object, required for generating an invoice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with parameters <cite>name</cite> and <cite>hourly_rate</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Project.remove_activity">
+<code class="descname">remove_activity</code><span class="sig-paren">(</span><em>activityid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project.remove_activity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project.remove_activity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a given activity from this projects list of activities</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>activityid</strong> &#8211; the id of the activity</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="webapp.models.Project.serialize">
+<code class="descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Project.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Project.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serializes this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with parameters <cite>name</cite>, <cite>customer</cite>, <cite>company</cite>, <cite>hourly_rate</cite>, <cite>team</cite> and a list of <cite>activities</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="webapp.models.Role">
+<em class="property">class </em><code class="descclassname">webapp.models.</code><code class="descname">Role</code><span class="sig-paren">(</span><em>*args</em>, <em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Role" title="Permalink to this definition">¶</a></dt>
+<dd><p>A role is used to determine the access level and permissions of a given user.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="webapp.models.Team">
+<em class="property">class </em><code class="descclassname">webapp.models.</code><code class="descname">Team</code><span class="sig-paren">(</span><em>*args</em>, <em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Team"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Team" title="Permalink to this definition">¶</a></dt>
+<dd><p>A team contains a number of members within a given company. A team can work together on a project.</p>
+<dl class="method">
+<dt id="webapp.models.Team.serialize">
+<code class="descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#Team.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.Team.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize this oject</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with keys <cite>name</cite>, <cite>members</cite> (list)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="webapp.models.User">
+<em class="property">class </em><code class="descclassname">webapp.models.</code><code class="descname">User</code><span class="sig-paren">(</span><em>*args</em>, <em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#User"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>User class.</p>
+<dl class="method">
+<dt id="webapp.models.User.serialize">
+<code class="descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/webapp/models.html#User.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#webapp.models.User.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize this object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict with keys <cite>username</cite>, <cite>email</cite> and <cite>created_at</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="endpoints.html" title="previous chapter">Endpoint functions</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/models.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Bart Aelterman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/models.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

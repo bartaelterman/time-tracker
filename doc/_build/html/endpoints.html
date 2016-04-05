@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Endpoint functions &mdash; Time tracker webapp  documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Time tracker webapp  documentation" href="index.html" />
+    <link rel="next" title="Models" href="models.html" />
+    <link rel="prev" title="Time tracker webapp documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="endpoint-functions">
+<h1>Endpoint functions<a class="headerlink" href="#endpoint-functions" title="Permalink to this headline">¶</a></h1>
+<p>Here are the endpoints that are available for the time tracker webapp.</p>
+<div class="section" id="user">
+<h2>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h2>
+<dl class="post">
+<dt id="post--users">
+<code class="descname">POST </code><code class="descname">/users</code><a class="headerlink" href="#post--users" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>List all users / Create a new user</div></blockquote>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/javascript</span>
+
+<span class="p">{</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;johndoe@gmail.com&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--users">
+<code class="descname">GET </code><code class="descname">/users</code><a class="headerlink" href="#get--users" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>List all users / Create a new user</div></blockquote>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Vary</span><span class="o">:</span> <span class="l">Accept</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/javascript</span>
+
+<span class="p">{</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;johndoe@gmail.com&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="put">
+<dt id="put--users-(username)">
+<code class="descname">PUT </code><code class="descname">/users/</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="headerlink" href="#put--users-(username)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get, update or delete the user matching the given username</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>username</strong> &#8211; string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last">nothing in case of DELETE, otherwise the serialized <code class="xref py py-class docutils literal"><span class="pre">User</span></code> object is returned</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="delete">
+<dt id="delete--users-(username)">
+<code class="descname">DELETE </code><code class="descname">/users/</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--users-(username)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get, update or delete the user matching the given username</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>username</strong> &#8211; string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last">nothing in case of DELETE, otherwise the serialized <code class="xref py py-class docutils literal"><span class="pre">User</span></code> object is returned</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--users-(username)">
+<code class="descname">GET </code><code class="descname">/users/</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="headerlink" href="#get--users-(username)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get, update or delete the user matching the given username</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>username</strong> &#8211; string</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><p class="first last">nothing in case of DELETE, otherwise the serialized <code class="xref py py-class docutils literal"><span class="pre">User</span></code> object is returned</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="company">
+<h2>Company<a class="headerlink" href="#company" title="Permalink to this headline">¶</a></h2>
+<dl class="post">
+<dt id="post--companies">
+<code class="descname">POST </code><code class="descname">/companies</code><a class="headerlink" href="#post--companies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--companies">
+<code class="descname">GET </code><code class="descname">/companies</code><a class="headerlink" href="#get--companies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="put">
+<dt id="put--companies-(companyname)-teams-(teamname)">
+<code class="descname">PUT </code><code class="descname">/companies/</code><span class="sig-paren">(</span><em>companyname</em><span class="sig-paren">)</span><code class="descname">/teams/</code><span class="sig-paren">(</span><em>teamname</em><span class="sig-paren">)</span><a class="headerlink" href="#put--companies-(companyname)-teams-(teamname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="delete">
+<dt id="delete--companies-(companyname)-teams-(teamname)">
+<code class="descname">DELETE </code><code class="descname">/companies/</code><span class="sig-paren">(</span><em>companyname</em><span class="sig-paren">)</span><code class="descname">/teams/</code><span class="sig-paren">(</span><em>teamname</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--companies-(companyname)-teams-(teamname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--companies-(companyname)-teams-(teamname)">
+<code class="descname">GET </code><code class="descname">/companies/</code><span class="sig-paren">(</span><em>companyname</em><span class="sig-paren">)</span><code class="descname">/teams/</code><span class="sig-paren">(</span><em>teamname</em><span class="sig-paren">)</span><a class="headerlink" href="#get--companies-(companyname)-teams-(teamname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="post">
+<dt id="post--companies-(companyname)-teams">
+<code class="descname">POST </code><code class="descname">/companies/</code><span class="sig-paren">(</span><em>companyname</em><span class="sig-paren">)</span><code class="descname">/teams</code><a class="headerlink" href="#post--companies-(companyname)-teams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--companies-(companyname)-teams">
+<code class="descname">GET </code><code class="descname">/companies/</code><span class="sig-paren">(</span><em>companyname</em><span class="sig-paren">)</span><code class="descname">/teams</code><a class="headerlink" href="#get--companies-(companyname)-teams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="put">
+<dt id="put--companies-(companyname)">
+<code class="descname">PUT </code><code class="descname">/companies/</code><span class="sig-paren">(</span><em>companyname</em><span class="sig-paren">)</span><a class="headerlink" href="#put--companies-(companyname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="delete">
+<dt id="delete--companies-(companyname)">
+<code class="descname">DELETE </code><code class="descname">/companies/</code><span class="sig-paren">(</span><em>companyname</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--companies-(companyname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--companies-(companyname)">
+<code class="descname">GET </code><code class="descname">/companies/</code><span class="sig-paren">(</span><em>companyname</em><span class="sig-paren">)</span><a class="headerlink" href="#get--companies-(companyname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="customer">
+<h2>Customer<a class="headerlink" href="#customer" title="Permalink to this headline">¶</a></h2>
+<dl class="post">
+<dt id="post--customers">
+<code class="descname">POST </code><code class="descname">/customers</code><a class="headerlink" href="#post--customers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--customers">
+<code class="descname">GET </code><code class="descname">/customers</code><a class="headerlink" href="#get--customers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="put">
+<dt id="put--customers-(customername)">
+<code class="descname">PUT </code><code class="descname">/customers/</code><span class="sig-paren">(</span><em>customername</em><span class="sig-paren">)</span><a class="headerlink" href="#put--customers-(customername)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="delete">
+<dt id="delete--customers-(customername)">
+<code class="descname">DELETE </code><code class="descname">/customers/</code><span class="sig-paren">(</span><em>customername</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--customers-(customername)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--customers-(customername)">
+<code class="descname">GET </code><code class="descname">/customers/</code><span class="sig-paren">(</span><em>customername</em><span class="sig-paren">)</span><a class="headerlink" href="#get--customers-(customername)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="project">
+<h2>Project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h2>
+<dl class="post">
+<dt id="post--projects">
+<code class="descname">POST </code><code class="descname">/projects</code><a class="headerlink" href="#post--projects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--projects">
+<code class="descname">GET </code><code class="descname">/projects</code><a class="headerlink" href="#get--projects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="put">
+<dt id="put--projects-(projectname)-activities-(activityid)">
+<code class="descname">PUT </code><code class="descname">/projects/</code><span class="sig-paren">(</span><em>projectname</em><span class="sig-paren">)</span><code class="descname">/activities/</code><span class="sig-paren">(</span><em>activityid</em><span class="sig-paren">)</span><a class="headerlink" href="#put--projects-(projectname)-activities-(activityid)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="delete">
+<dt id="delete--projects-(projectname)-activities-(activityid)">
+<code class="descname">DELETE </code><code class="descname">/projects/</code><span class="sig-paren">(</span><em>projectname</em><span class="sig-paren">)</span><code class="descname">/activities/</code><span class="sig-paren">(</span><em>activityid</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--projects-(projectname)-activities-(activityid)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--projects-(projectname)-activities-(activityid)">
+<code class="descname">GET </code><code class="descname">/projects/</code><span class="sig-paren">(</span><em>projectname</em><span class="sig-paren">)</span><code class="descname">/activities/</code><span class="sig-paren">(</span><em>activityid</em><span class="sig-paren">)</span><a class="headerlink" href="#get--projects-(projectname)-activities-(activityid)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="post">
+<dt id="post--projects-(projectname)-activities">
+<code class="descname">POST </code><code class="descname">/projects/</code><span class="sig-paren">(</span><em>projectname</em><span class="sig-paren">)</span><code class="descname">/activities</code><a class="headerlink" href="#post--projects-(projectname)-activities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--projects-(projectname)-activities">
+<code class="descname">GET </code><code class="descname">/projects/</code><span class="sig-paren">(</span><em>projectname</em><span class="sig-paren">)</span><code class="descname">/activities</code><a class="headerlink" href="#get--projects-(projectname)-activities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="put">
+<dt id="put--projects-(projectname)">
+<code class="descname">PUT </code><code class="descname">/projects/</code><span class="sig-paren">(</span><em>projectname</em><span class="sig-paren">)</span><a class="headerlink" href="#put--projects-(projectname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="delete">
+<dt id="delete--projects-(projectname)">
+<code class="descname">DELETE </code><code class="descname">/projects/</code><span class="sig-paren">(</span><em>projectname</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--projects-(projectname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--projects-(projectname)">
+<code class="descname">GET </code><code class="descname">/projects/</code><span class="sig-paren">(</span><em>projectname</em><span class="sig-paren">)</span><a class="headerlink" href="#get--projects-(projectname)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="invoice">
+<h2>Invoice<a class="headerlink" href="#invoice" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get--invoice">
+<code class="descname">GET </code><code class="descname">/invoice</code><a class="headerlink" href="#get--invoice" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Endpoint functions</a><ul>
+<li><a class="reference internal" href="#user">User</a></li>
+<li><a class="reference internal" href="#company">Company</a></li>
+<li><a class="reference internal" href="#customer">Customer</a></li>
+<li><a class="reference internal" href="#project">Project</a></li>
+<li><a class="reference internal" href="#invoice">Invoice</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Time tracker webapp documentation</a></li>
+      <li>Next: <a href="models.html" title="next chapter">Models</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/endpoints.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Bart Aelterman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/endpoints.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
