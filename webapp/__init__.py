@@ -7,7 +7,8 @@ db = MongoEngine()
 from webapp.models import User, Role
 
 def register_blueprints(app):
-    from webapp.views import users, companies, customers, projects, invoices
+    from webapp.views import main, users, companies, customers, projects, invoices
+    app.register_blueprint(main)
     app.register_blueprint(users, url_prefix='/users')
     app.register_blueprint(companies, url_prefix='/companies')
     app.register_blueprint(customers, url_prefix='/customers')

@@ -1,4 +1,4 @@
-# Time tracker
+# YATT: Yet Another Time Tracker
 
 A web application for tracking time and generating invoices.
 

@@ -1,7 +1,7 @@
 Endpoint functions
 ==================
 
-Here are the endpoints that are available for the time tracker webapp.
+Here are the endpoints that are available for YATT.
 
 User
 ----

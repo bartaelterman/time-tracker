@@ -25,7 +25,7 @@ class WebappTestCase(unittest.TestCase):
 
     def test_empty_db(self):
         rv = self.app.get('/')
-        assert '404' in rv.status
+        assert '302' in rv.status
 
     def test_empty_users(self):
         rv = self.app.get('/users/')
