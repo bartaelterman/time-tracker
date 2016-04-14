@@ -5,31 +5,12 @@
     <title>YATT</title>
 </head>
 <body>
-<h1>Users list</h1>
 
-    <h2>New user</h2>
-    Username:<br>
-    <input type="text" name="username" data-bind="value: newUsername"/><br>
-    Email:<br>
-    <input type="text" name="email" data-bind="value: newUserEmail"/><br>
-    <button data-bind="click: createUser">Save</button><br>
+<h1>YATT: Yet Another Time Tracker</h1>
 
-<h2>Existing users</h2>
-
-<table data-bind="visible: users().length > 0">
-    <thead><tr>
-        <th>User name</th><th>Email</th><th>Created at</th>
-    </tr></thead>
-    <tbody data-bind="foreach: users">
-        <tr>
-            <td data-bind="text: username"></td>
-            <td data-bind="text: email"></td>
-            <td data-bind="text: createdAt"></td>
-            <td><a href="#" data-bind="click: $parent.deleteUser">Delete</a></td>
-        </tr>
-
-    </tbody>
-</table>
+<a href="/login">Log in</a>
+<a href="/register">Register</a>
+<a href="/track">Start tracking</a>
 
 </body>
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>

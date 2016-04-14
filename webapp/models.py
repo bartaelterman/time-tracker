@@ -118,9 +118,8 @@ class Company(db.Document):
 
         :param teamname: the name of the team
         """
-        for t in self.teams:
-            if t.name == teamname:
-                self.teams.remove(t)
+        team = Team.objects.get(name=teamname)
+        self.modify(pull__teams=team)
 
     def __unicode__(self):
         return self.name
@@ -238,9 +237,8 @@ class Project(db.Document):
 
         :param activityid: the id of the activity
         """
-        for a in self.activities:
-            if a.id == activityid:
-                self.activities.remove(a)
+        activity = Activity.objects.get(id=activityid)
+        self.modify(pull__activities=activity)
 
     def get_activities_dict(self, start_date, end_date, only_billable=True):
         """

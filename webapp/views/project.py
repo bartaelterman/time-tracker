@@ -59,24 +59,23 @@ def list_activities(projectname):
         return jsonify(activities=[a.serialize() for a in project.activities])
     elif request.method == 'POST':
         try:
-            user = User.objects.get(username=request.form.get('username'))
-            start_datetime = datetime(*strptime(request.form.get('start'), '%Y-%m-%d %H:%M:%S')[0:6])
-            if request.form.get('billable') == 'true':
+            user = User.objects.get(username=request.json.get('username'))
+            start_datetime = datetime(*strptime(request.json.get('start'), '%Y-%m-%d %H:%M:%S')[0:6])
+            if request.json.get('billable') == 'true':
                 billable = True
-            elif request.form.get('billable') == 'false':
+            elif request.json.get('billable') == 'false':
                 billable = False
             else:
                 raise ValueError('billable should be "true" or "false"')
             activity = Activity(
                 user=user,
                 start=start_datetime,
-                minutes=request.form.get('minutes'),
-                description=request.form.get('description'),
+                minutes=request.json.get('minutes'),
+                description=request.json.get('description'),
                 billable=billable
             )
             activity.save()
-            project.activities.append(activity)
-            project.save()
+            project.modify(push__activities=activity)
         except Exception, e:
             print e.message
             return 'incorrect data format', 400

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YATT track time</title>
+</head>
+
+<body>
+<h1>Track time</h1>
+Select a project: <select data-bind="options: existingProjects, value: selectedProject,
+    optionsText: 'name', optionsCaption: 'Choose project'"></select>
+
+<div data-bind="visible: selectedProject">
+    <h2 data-bind="text: selectedProject()? selectedProject().name : ''"></h2>
+    <ul>
+        <li>Customer: <span data-bind="text: selectedProject()? selectedProject().customer() : 'unknown'"></span></li>
+        <li>Company: <span data-bind="text: selectedProject()? selectedProject().company() : 'unknown'"></span></li>
+        <li>Hourly rate: <span data-bind="text: selectedProject()? selectedProject().hourlyRate() : 'unknown'"></span></li>
+        <li>Team: <span data-bind="text: selectedProject()? selectedProject().team() : 'unknown'"></span></li>
+    </ul>
+
+    <h2>Activities</h2>
+
+    Create a new activity:<br>
+    Date: <input type="date" data-bind="value: newActivityDate"/>
+    Start time: <input type="time" data-bind="value: newActivityStarttime"/>
+    Duration: <input type="text" data-bind="value: newActivityDuration"/>
+    Description: <input type="text" data-bind="value: newActivityDescription"/>
+    Billable: <input type="checkbox" data-bind="checked: newActivityBillable"/>
+    <button data-bind="click: addActivity">save</button>
+    <table>
+        <thead>
+            <th>Start</th><th>Duration</th><th>Activity</th><th>Billable</th>
+        </thead>
+        <tbody data-bind="foreach: selectedProject() ? selectedProject().activities() : []">
+            <tr>
+                <td data-bind="text: start"></td>
+                <td data-bind="text: duration_str"></td>
+                <td data-bind="text: description"></td>
+                <td data-bind="text: billable"></td>
+                <td><a href="#" data-bind="click: $parent.deleteActivity">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="/static/js/knockout-3.4.0.js" type="text/javascript"></script>
+<script src="/static/js/yatt.js" type="text/javascript"></script>
+<script>
+    ko.applyBindings(new ProjectListViewModel());
+</script>
+</html>
